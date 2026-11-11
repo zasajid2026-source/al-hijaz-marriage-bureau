@@ -61,6 +61,22 @@
   footer .moto{display:inline-block;background:linear-gradient(180deg,var(--maroon2),var(--maroon));border:3px solid var(--golddeep);color:var(--gold);border-radius:40px;padding:2px 34px 10px;font-size:22px;font-weight:700}
   footer .small{margin-top:12px;font-size:15px;color:#8a6a1f}
   .wa-float{position:fixed;bottom:18px;inset-inline-start:18px;background:#1faa55;color:#fff;text-decoration:none;border-radius:50px;padding:6px 24px 12px;font-size:19px;font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.30);border:2px solid #0e7a3a;z-index:50}
+  /* FORM */
+  .form-card{background:#fff;border:3px solid var(--golddeep);border-radius:22px;max-width:760px;margin:0 auto;padding:24px 22px 18px;box-shadow:0 10px 24px rgba(124,10,30,.14)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+  .fld{display:flex;flex-direction:column}
+  .fld.full{grid-column:1/-1}
+  .fld label{font-size:17px;font-weight:700;color:var(--maroon);margin-bottom:2px}
+  .fld label .req{color:#c01530}
+  .fld input,.fld select,.fld textarea{font-family:inherit;font-size:17px;line-height:1.9;padding:4px 14px 8px;border:2px solid #d9c48f;border-radius:12px;background:#fffdf6;color:var(--ink);width:100%}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--green);background:#fff}
+  .radio-row{display:flex;gap:10px;flex-wrap:wrap}
+  .radio-row label{display:inline-flex;align-items:center;gap:7px;background:#fffdf6;border:2px solid #d9c48f;border-radius:40px;padding:2px 18px 7px;font-size:17px;font-weight:700;color:var(--ink);cursor:pointer}
+  .radio-row input{accent-color:var(--maroon);width:18px;height:18px}
+  .send-wa{margin-top:20px;width:100%;background:#1faa55;color:#fff;border:3px solid #0e7a3a;border-radius:50px;font-family:inherit;font-size:22px;font-weight:700;padding:8px 20px 14px;cursor:pointer;box-shadow:0 8px 18px rgba(14,122,58,.35)}
+  .send-wa:hover{background:#178f47}
+  .form-note{text-align:center;font-size:15px;color:#8a6a1f;margin-top:10px}
+  @media (max-width:560px){.form-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -87,6 +103,7 @@
   <div class="cta-row">
     <a class="btn btn-call" href="tel:+923124165801">📞 کال کریں — <span class="num">0312-4165801</span></a>
     <a class="btn btn-wa" href="https://wa.me/923124165801" target="_blank" rel="noopener">💬 واٹس ایپ پر رابطہ کریں</a>
+    <a class="btn" style="background:linear-gradient(180deg,var(--green),var(--green2));color:#fff;border:3px solid var(--golddeep)" href="#rishta-form">📝 رشتہ فارم بھریں</a>
   </div>
 </header>
 
@@ -128,6 +145,43 @@
     </div>
   </section>
 
+  <section id="rishta-form">
+    <div class="sec-head"><h2>رشتہ فارم</h2></div>
+    <p class="lead">نیچے اپنی تفصیل بھریں — "واٹس ایپ پر بھیجیں" دباتے ہی آپ کی تفصیل سیدھی حاجی غلام مرتضیٰ صاحب کو واٹس ایپ پر پہنچ جائے گی۔</p>
+    <form class="form-card" id="matchForm">
+      <div class="form-grid">
+        <div class="fld full">
+          <label>رشتہ کس کے لیے چاہیے؟ <span class="req">*</span></label>
+          <div class="radio-row">
+            <label><input type="radio" name="forWhom" value="لڑکے کے لیے" checked> لڑکے کے لیے</label>
+            <label><input type="radio" name="forWhom" value="لڑکی کے لیے"> لڑکی کے لیے</label>
+          </div>
+        </div>
+        <div class="fld"><label>نام <span class="req">*</span></label><input id="fName" type="text" placeholder="اپنا نام لکھیں" required></div>
+        <div class="fld"><label>عمر <span class="req">*</span></label><input id="fAge" type="number" min="16" max="80" placeholder="مثلاً 24" required></div>
+        <div class="fld"><label>شہر / علاقہ <span class="req">*</span></label><input id="fCity" type="text" placeholder="مثلاً وہاڑی" required></div>
+        <div class="fld"><label>ذات / برادری</label><input id="fCast" type="text" placeholder="اپنی ذات برادری"></div>
+        <div class="fld"><label>تعلیم</label><input id="fEdu" type="text" placeholder="مثلاً بی اے / ایم اے"></div>
+        <div class="fld"><label>پیشہ</label><input id="fJob" type="text" placeholder="مثلاً ٹیچر / بزنس"></div>
+        <div class="fld"><label>ازدواجی حیثیت</label>
+          <select id="fStatus">
+            <option>کنوارہ / کنواری</option><option>طلاق یافتہ</option><option>بیوہ / راندھوا</option>
+          </select>
+        </div>
+        <div class="fld"><label>قد</label><input id="fHeight" type="text" placeholder="مثلاً 5 فٹ 6 انچ"></div>
+        <div class="fld"><label>آپ کا رابطہ نمبر <span class="req">*</span></label><input id="fPhone" type="tel" placeholder="03XX-XXXXXXX" required></div>
+        <div class="fld"><label>رشتہ کہاں کا چاہیے؟</label>
+          <select id="fCountry">
+            <option>پاکستان</option><option>یوکے</option><option>کینیڈا</option><option>آسٹریلیا</option><option>سعودی عرب</option><option>دبئی</option><option>جرمنی</option><option>امریکہ</option><option>کوئی بھی</option>
+          </select>
+        </div>
+        <div class="fld full"><label>مزید تفصیل / پسند</label><textarea id="fDetail" rows="3" placeholder="اپنی پسند یا کوئی خاص بات لکھیں"></textarea></div>
+      </div>
+      <button type="submit" class="send-wa">💬 واٹس ایپ پر بھیجیں</button>
+      <div class="form-note">🔒 آپ کی تفصیل صرف بیورو کو بھیجی جاتی ہے — مکمل رازداری کی ضمانت</div>
+    </form>
+  </section>
+
   <div class="contact">
     <h2>آج ہی رابطہ کریں</h2>
     <div class="who">حاجی غلام مرتضیٰ صاحب — الحجاز انٹرنیشنل میرج بیورو</div>
@@ -146,6 +200,34 @@
 </div>
 
 <a class="wa-float" href="https://wa.me/923124165801" target="_blank" rel="noopener">💬 واٹس ایپ</a>
+
+<script>
+document.getElementById('matchForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var v = function(id){ return document.getElementById(id).value.trim(); };
+  var name = v('fName'), age = v('fAge'), city = v('fCity'), phone = v('fPhone');
+  if(!name || !age || !city || !phone){ alert('براہ کرم ستارے (*) والے خانے ضرور بھریں'); return; }
+  var forWhom = document.querySelector('input[name="forWhom"]:checked').value;
+  var lines = [
+    'السلام علیکم! *الحجاز انٹرنیشنل میرج بیورو — رشتہ فارم*',
+    '———————————',
+    'رشتہ: ' + forWhom,
+    'نام: ' + name,
+    'عمر: ' + age + ' سال',
+    'شہر: ' + city
+  ];
+  if(v('fCast'))   lines.push('ذات / برادری: ' + v('fCast'));
+  if(v('fEdu'))    lines.push('تعلیم: ' + v('fEdu'));
+  if(v('fJob'))    lines.push('پیشہ: ' + v('fJob'));
+  lines.push('ازدواجی حیثیت: ' + v('fStatus'));
+  if(v('fHeight')) lines.push('قد: ' + v('fHeight'));
+  lines.push('رشتہ چاہیے: ' + v('fCountry'));
+  if(v('fDetail')) lines.push('مزید تفصیل: ' + v('fDetail'));
+  lines.push('رابطہ نمبر: ' + phone);
+  var msg = encodeURIComponent(lines.join('\n'));
+  window.open('https://wa.me/923124165801?text=' + msg, '_blank');
+});
+</script>
 
 </body>
 </html>
